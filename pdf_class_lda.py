@@ -39,13 +39,13 @@ def parse_arguments():
     parser.add_argument(
         "--source_path",
         type=str,
-        default='./data/all_metainfo_230916_1.jsonl',
+        default='./data/selected.jsonl',
         help="This is original jsonl file",
     )
     parser.add_argument(
         "--operation",
         type=str,
-        default='move',
+        default='copy',
         help="original file is move or copy",
     )
     return parser.parse_args()
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     lcontent = []
     with jsonlines.open(args.source_path, "r") as reader:
         for pdfInfo in tqdm(reader):
-            if '/Producer' in pdfInfo.keys():  # '/Creator'
+            if '/Producer' in pdfInfo.keys():
                 lcontent.append(preprocess_text(pdfInfo['/Producer']))
     reader.close()
 

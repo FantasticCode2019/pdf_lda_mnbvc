@@ -17,8 +17,6 @@
 
 3.执行脚本
 
-`--source_path`是指元数据的jsonl文件,`--operation`是指将每一行元数据的所在文件移动或者拷贝到分类文件夹中，参数值有move，copy
-
-> python pdf_class_lda.py --source_path ./data/test.jsonl --operation copy
+> python pdf_class_lda.py
 
 4.获取最后的`lda_pass4.html`和分类文件夹
